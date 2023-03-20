@@ -13,7 +13,17 @@ module.exports = {
         quartenary: '#5BC0BE',
         quinary: '#FFFFFF',
 
-      }
+      },
+      screens: {
+        'small': '486px',
+        // => @media (min-width: 576px) { ... }
+  
+        'middle': '700px',
+        // => @media (min-width: 960px) { ... }
+  
+        'middle-2': '900px',
+        // => @media (min-width: 1440px) { ... }
+      },
     },
   },
   plugins: [],
