@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Carousel } from "flowbite-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper";
 import ImageCard from "../../../components/imageCard/imageCard";
 
 
@@ -22,7 +23,7 @@ const Top_Filmes = () => {
         .then(response => response.json())
         .then(response => response.images)
         .then(response => {
-            setImage_size(response.poster_sizes[3]) 
+            setImage_size(response.poster_sizes[5]) 
             setBase_url(response.base_url)
             
         })
@@ -41,9 +42,9 @@ const Top_Filmes = () => {
         
     },[])
     for(const filme in top_filmes){
-        if(array_movies.length <= 10){
-            array_movies.push(top_filmes[filme])
-        }
+        
+        array_movies.push(top_filmes[filme])
+        
        
     }
   
@@ -52,22 +53,30 @@ const Top_Filmes = () => {
     
 
     return(
-        <div className="  h-screen  bg-primary">
-            <div>
-                <h2 className=" p-3 text-2xl text-white ">Top Filmes</h2>
-            </div>
-            <hr/>
-            <div className="h-smartphone sm:h-64 xl:h-80 2xl:h-96 m-11 ">
-                <Carousel className="h-smartphone w-72 m-auto " slideInterval={5000}>
-                {array_movies.map(movie =>  <ImageCard 
+        <div className="">
+            <h2 className="text-white font-bold text-right text-4xl pr-6 pt-20 ">Top Filmes</h2>
+            <hr className="w-1/2 p-5 ml-auto" />
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                }}
+        
+                navigation={true}
+                modules={[Autoplay, Navigation]}
+                className=""
+            >       
+                {array_movies.map(movie => <SwiperSlide><ImageCard 
 
                     name ={movie.title} 
                     key={movie.id}
-                    link={base_url + image_size + movie.poster_path} /> 
-                )} 
-                </Carousel>
-            </div>
-        </div>
+                    link={base_url + image_size + movie.poster_path} />
+                    
+                </SwiperSlide> )} 
+            </Swiper>
+    </div>
     )
 }
 

@@ -9,7 +9,7 @@ const All_Popular = (props) => {
      */
     return(
         <div className=" flex justify-center items-center h-screen bg-primary ">
-            <h1 className=" text-7xl text-white" >Not Found {props.name}</h1>
+            <h1 className=" text-6xl text-white" >Not Found {props.name}</h1>
         </div>
     )
 }

@@ -27,6 +27,9 @@ module.exports = {
       },
       spacing:{
         smartphone: "31rem"
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif']
       }
     },
   },
