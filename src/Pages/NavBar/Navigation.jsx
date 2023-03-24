@@ -14,12 +14,12 @@ function NavBar(){
                     <img className="absolute opacity-30 w-screen blur-sm lg:bg-center h-modal small:h-72 " src="./src/assets/imagens/backgroundImage.jpg" alt="" />
                 </div>
                 
-                <Link to="/" className="  p-5 rounded-full opacity-70 hover:opacity-100  " href="#"><img className=" relative small:w-32 sm:w-36 md:w-36 lg:w-52 p-0  " src="./src/assets/imagens/image3.png" alt="" /></Link>
+                <Link to="/" className="  p-5 rounded-full opacity-70 hover:opacity-100"><img className=" relative small:w-32 sm:w-36 md:w-36 lg:w-52 p-0  " src="./src/assets/imagens/image3.png" alt="" /></Link>
                 <h2 className="font-extrabold text-6xl small:text-4xl lg:text-8xl  pr-5 text-black opacity-70 hover:text-red-800 hover:opacity-95">CornFlixBR</h2>
                 <div className="absolute bottom-0">
                 
                     <nav className="flex flex-row gap-4 small:mt-16 pl-10 bg-primary text-white border-t-2 border-b-2 md:flex justify-center w-screen small:text-sm">
-                        <Link to="/all_popular" className="hover:bg-tertiary p-2 rounded-md">POPULARES</Link>
+                        <Link to="/all_popular/" className="hover:bg-tertiary p-2 rounded-md">POPULARES</Link>
                         <Link to="/all_movies" className="hover:bg-tertiary p-2 rounded-md">TODOS FILMES</Link>
                         <Link to="/all_top " className="hover:bg-tertiary p-2 rounded-md">TOP FILMES</Link>
                         

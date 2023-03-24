@@ -1,3 +1,4 @@
+import "swiper/css";
 
 import Popular_Filmes from "./popular_filmes"
 import Top_Filmes from "./top_filmes"
@@ -17,8 +18,6 @@ function Home() {
           <Popular_Filmes />
           <Top_Filmes />
           <h2 className=" text-center text-red-900 font-bold pb-4">CornFlixBR - Mario 2023</h2>
-          <p></p>
-          
           
         </div>
       </div>
