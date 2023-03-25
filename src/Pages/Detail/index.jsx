@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
-import { getDetailsMovie, getImages } from "../../api";
+import { useParams } from "react-router-dom";
+import { getDetailsMovie } from "../../api";
 
 export default function Detail(){
 
@@ -8,21 +8,19 @@ export default function Detail(){
     const [imageMovie, setImageMovie] = useState()
     const [overView, setOverView] = useState()
     const [title, setTitle] = useState()
-    const [image_size, setImage_size] = useState()
-    const [base_url, setBase_url] = useState()
+    const imageUrl = import.meta.env.VITE_MOVIE_URL
+
     getDetailsMovie(movie_id.id).then((data) =>{
         setImageMovie(data.poster_path)
         setOverView(data.overview)
         setTitle(data.title)
     })
-    getImages().then((data) =>{
-        
-        setImage_size(data.poster_sizes[5]) //w780
-        setBase_url(data.secure_base_url) //url com https
-
-    })
-        
-
+    /*
+        Nessa funçao voce ira fazer com que a pagina se torne dinamica 
+        ao clicar em um filme.
+        Nela ira conter a foto do filme, nome, data de lancamento, avaliaçaõ IMDB
+        sinopse, trailer, como dito tem que ser uma unica pagina que ira fornecer essas informaçoes
+     */
 
 
     return(
@@ -30,12 +28,11 @@ export default function Detail(){
             
             <h1 className="text-white text-3xl font-roboto font-semibold p-4 text-left">{title}</h1>
             <div className="w-80 m-auto">
-                <img className="rounded-2xl border" src={base_url + image_size + imageMovie} alt="" />
+                <img className="rounded-2xl border" src={imageUrl+imageMovie} alt="" />
                 <div className="flex justify-between">
                     <p>1</p>
                     <p>2</p>
                 </div>
-
             </div>
             <h2 className="text-white font-semibold text-2xl pt-8 pl-5">SINOPSE:</h2>
             <div>

@@ -1,11 +1,13 @@
+const mario_teste = import.meta.env.VITE_TESTE
+
 const api_key = "?api_key=bbce7d7263ec1765a0e2e55bb1cc0aef"
 const url_api = "https://api.themoviedb.org/3/"
 const url_configuration = "configuration"
 const region = "&language=pt-BR"
 
-export const getMovies = async (type_movies,page=1) => {
+export const getMovies = async (type_movies,page) => {
     try{
-        const response = await fetch(`${url_api}${type_movies}${api_key}${region}&page=${page}`)
+        const response = await fetch(`${url_api}movie/${type_movies}${api_key}${region}&page=${page}`)
         const data = await response.json()
         //console.log(data)
         return data

@@ -2,38 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import ImageCard from "../../../components/imageCard/imageCard";
-import { 
-    getMovies,
-    getImages
- } from "../../../api";
-
-
+import { getMovies } from "../../../api";
 
 const Popular_Filmes = () => {
 
-
-    let array_movies = []
-    const [base_url, setBase_url] = useState() 
-    const [image_size, setImage_size] = useState() 
-    const [popular_movies, setPopularMovies] = useState();                  
-    const movies = "movie/popular"
+    const imageUrl = import.meta.env.VITE_MOVIE_URL
+    const [popularMovies, setPopularMovies] = useState([]);                  
+    const movies = "popular"
     
     useEffect(() => { 
         
-        getImages().then((response) => {
-            setImage_size(response.poster_sizes[5]) //w780
-            setBase_url(response.secure_base_url) //url com https
-        })
-
         getMovies(movies).then((data) => {
             setPopularMovies(data.results)
         })
     },[])
-    for(const popular in popular_movies){
-        
-        array_movies.push(popular_movies[popular])
-        
-    }
     
     return(
 
@@ -50,13 +32,13 @@ const Popular_Filmes = () => {
             navigation={true}
             modules={[Autoplay, Navigation]}
         >
-            {array_movies.map(movie => <SwiperSlide key={movie.id} ><ImageCard 
+            {popularMovies.map(movie => <SwiperSlide key={movie.id} ><ImageCard 
                     name={movie.title} 
                     key={movie.id}
                     id={movie.id}
-                    link={base_url+image_size+movie.poster_path} />
+                    link={imageUrl+movie.poster_path} />
             </SwiperSlide> )} 
-      </Swiper>
+        </Swiper>
     </div>
     )
 }
