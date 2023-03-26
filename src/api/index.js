@@ -1,5 +1,5 @@
 
-const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+const imageUrl = 'https://image.tmdb.org/t/p/original'
 let randomNumber = Math.floor( Math.random() * 15) 
 const api_key = "?api_key=bbce7d7263ec1765a0e2e55bb1cc0aef"
 const url_api = "https://api.themoviedb.org/3/"

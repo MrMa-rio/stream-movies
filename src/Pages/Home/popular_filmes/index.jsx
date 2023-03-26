@@ -7,14 +7,16 @@ import { Refresh } from "../../../components/refresh/refresh";
 
 const Popular_Filmes = () => {
 
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
-    const [popularMovies, setPopularMovies] = useState(null);                  
+    const imageUrl = "https://image.tmdb.org/t/p/original"
+    const [popularMovies, setPopularMovies] = useState(null);        
+              
     const movies = "popular"
     
     useEffect(() => { 
         
         getMovies(movies).then((data) => {
             setPopularMovies(data.results)
+            
         })
     },[])
     
@@ -40,7 +42,7 @@ const Popular_Filmes = () => {
                                 name={movie.title} 
                                 key={movie.id}
                                 id={movie.id}
-                                link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
                         </SwiperSlide> )} 
                     </Swiper>
                 </div>

@@ -9,7 +9,7 @@ import { Refresh } from "../../../components/refresh/refresh";
 
 const Lancamentos = () => {
 
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
     const [upcoming_movies, setUpcomingMovies] = useState(null)                
     const movies = "upcoming"
     
@@ -40,7 +40,7 @@ const Lancamentos = () => {
                             name={movie.title}
                             key={movie.id}
                             id={movie.id}
-                            link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                            link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
                         </SwiperSlide> )} 
                     </Swiper>
                 </div>

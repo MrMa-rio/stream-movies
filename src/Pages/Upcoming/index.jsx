@@ -6,7 +6,7 @@ import { Refresh } from "../../components/refresh/refresh";
 const Upcoming = () => {
 
     const [upcoming_movies, setUpcomingMovies] = useState(null)
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
     const movies = "upcoming"
     const [ page, setPage ] = useState(1);
     const [bgMovie, setBgMovie] = useState()
@@ -27,7 +27,7 @@ const Upcoming = () => {
             </div>
             {/*<button className="relative text-white text-center bg-white" onClick={()=> setPage((prev)=> prev + 1)}>+1</button>*/}
             {upcoming_movies.map((movie) =>  <div className="">
-                <ImageCard name={movie.title} id={movie.id} link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
             </div> )}
         </div>
     )

@@ -6,7 +6,7 @@ import { Refresh } from "../../components/refresh/refresh";
 
 const Top = () => {
 
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
     const [top_movies, setTopMovies] = useState(null)
     const movies = "top_rated"
     const [page, setPage] = useState(1)
@@ -28,7 +28,7 @@ const Top = () => {
                     <img className="fixed w-screen h-fit blur-sm " src={bgMovie} alt="" />
                 </div> 
                 {top_movies.map((movie) =>  <div className="p-10">
-                    <ImageCard name={movie.title} id={movie.id} link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
+                    <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
                 </div> )}
             </div>
         )

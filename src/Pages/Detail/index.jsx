@@ -5,10 +5,10 @@ import { getDetailsMovie } from "../../api";
 export default function Detail(){
 
     const movie_id = useParams()
-    const [imageMovie, setImageMovie] = useState()
+    const [imageMovie, setImageMovie] = useState(null)
     const [overView, setOverView] = useState()
     const [title, setTitle] = useState()
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
 
     getDetailsMovie(movie_id.id).then((data) =>{
         setImageMovie(data.poster_path)
@@ -24,7 +24,7 @@ export default function Detail(){
 
 
     return(
-        <div className="bg-primary">
+        <div className="bg-primary h-screen">
             
             <h1 className="text-white text-3xl font-roboto font-semibold p-4 text-left">{title}</h1>
             <div className="w-80 m-auto">

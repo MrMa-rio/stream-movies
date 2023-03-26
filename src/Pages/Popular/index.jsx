@@ -7,7 +7,7 @@ import { Refresh } from "../../components/refresh/refresh";
 const Popular = () => {
 
     const [popularMovies, setPopularMovies] = useState(null)
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
     const movies = "popular"
     const [page,setPage] = useState(1)
     const [bgMovie, setBgMovie] = useState()
@@ -29,7 +29,7 @@ const Popular = () => {
                 </div>
                 {popularMovies.map((movie) =>  <div className="p-10">
                    
-                    <ImageCard name={movie.title} id={movie.id} link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
+                    <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
                 </div> )}
             </div>
         )

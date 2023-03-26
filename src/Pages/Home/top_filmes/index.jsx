@@ -8,7 +8,7 @@ import { Refresh } from "../../../components/refresh/refresh";
 const Top_Filmes = () => {
 
     const top_movie = "top_rated"
-    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const imageUrl = "https://image.tmdb.org/t/p/original"
     const[top_movies, setTopFilmes] = useState(null)
     const [page, setPage] = useState(1)
 
@@ -36,7 +36,7 @@ const Top_Filmes = () => {
                         name ={movie.title} 
                         id={movie.id}
                         key={movie.id}
-                        link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} /> 
+                        link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} /> 
                     </SwiperSlide> )} 
                 </Swiper>
             </div>
