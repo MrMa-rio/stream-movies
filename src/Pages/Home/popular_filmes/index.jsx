@@ -3,11 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import ImageCard from "../../../components/imageCard/imageCard";
 import { getMovies } from "../../../api";
+import { Refresh } from "../../../components/refresh/refresh";
 
 const Popular_Filmes = () => {
 
-    const imageUrl = import.meta.env.VITE_MOVIE_URL
-    const [popularMovies, setPopularMovies] = useState([]);                  
+    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+    const [popularMovies, setPopularMovies] = useState(null);                  
     const movies = "popular"
     
     useEffect(() => { 
@@ -17,30 +18,41 @@ const Popular_Filmes = () => {
         })
     },[])
     
-    return(
+    
 
-    <div>
-        <h3 className="text-white font-bold text-3xl pl-6 pt-6 ">Filmes Populares</h3>
-        <hr className="w-1/2 p-5" />
-        <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-            }}
-            navigation={true}
-            modules={[Autoplay, Navigation]}
-        >
-            {popularMovies.map(movie => <SwiperSlide key={movie.id} ><ImageCard 
-                    name={movie.title} 
-                    key={movie.id}
-                    id={movie.id}
-                    link={imageUrl+movie.poster_path} />
-            </SwiperSlide> )} 
-        </Swiper>
-    </div>
-    )
+    
+        {if(popularMovies != null){
+            return(
+                <div>
+                    <h3 className="text-white text-center  font-bold text-3xl p-3 ">Filmes Populares</h3>
+                    
+                    <Swiper
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                        delay: 7000,
+                        disableOnInteraction: false,
+                        }}
+                        navigation={true}
+                        modules={[Autoplay, Navigation]}
+                    >
+                        {popularMovies.map(movie => <SwiperSlide key={movie.id} ><ImageCard 
+                                name={movie.title} 
+                                key={movie.id}
+                                id={movie.id}
+                                link={movie.poster_path != null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                        </SwiperSlide> )} 
+                    </Swiper>
+                </div>
+            )
+        }
+        else{
+            return(
+                <Refresh />
+            )
+        }
+    }
+    
 }
 
 export default Popular_Filmes

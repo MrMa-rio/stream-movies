@@ -1,5 +1,6 @@
-const mario_teste = import.meta.env.VITE_TESTE
 
+const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
+let randomNumber = Math.floor( Math.random() * 15) 
 const api_key = "?api_key=bbce7d7263ec1765a0e2e55bb1cc0aef"
 const url_api = "https://api.themoviedb.org/3/"
 const url_configuration = "configuration"
@@ -9,12 +10,33 @@ export const getMovies = async (type_movies,page) => {
     try{
         const response = await fetch(`${url_api}movie/${type_movies}${api_key}${region}&page=${page}`)
         const data = await response.json()
-        //console.log(data)
         return data
     } catch(error) {
         console.error(error)
     }
     
+}
+export const randomMovies = async () =>{
+ 
+    const type_movies = 'upcoming'
+    try {
+
+        const response = await getMovies(type_movies,1)
+        const result = await response.results
+        const data = result[randomNumber]
+        console.log(data)
+        const randomImage = data.backdrop_path
+        if(randomImage != null){
+            return imageUrl+randomImage
+        }
+        else{
+            return '../src/assets/imagens/backgroundImage.jpg'
+        }
+        
+    } catch (error) {
+        console.error(error)
+        return '../src/assets/imagens/backgroundImage.jpg'
+    }
 }
 
 export const getDetailsMovie = async (movie_id) =>{
@@ -27,6 +49,8 @@ export const getDetailsMovie = async (movie_id) =>{
     }
 }
 
+
+//delete
 export const getImages = async () =>{
 
     try {

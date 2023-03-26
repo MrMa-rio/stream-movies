@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+
+
 module.exports = {
   content: [
      "./index.html",
@@ -30,8 +33,8 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif']
-      }
-    },
+      },
+    }, 
   },
   plugins: [
 

@@ -14,9 +14,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     
     <Router>
-      <NavBar />
+      
       <div className='w-screen'>
+        
         <Routes>
+
           <Route path="/" element={<Home />}  />
           <Route path='/popular' element={<Popular name='Popular' />} />
           <Route path='/upcoming' element={<Upcoming name='Upcoming_Movies' />} />

@@ -8,7 +8,7 @@ export default function Detail(){
     const [imageMovie, setImageMovie] = useState()
     const [overView, setOverView] = useState()
     const [title, setTitle] = useState()
-    const imageUrl = import.meta.env.VITE_MOVIE_URL
+    const imageUrl = import.meta.env.VITE_MOVIE_URL_XL
 
     getDetailsMovie(movie_id.id).then((data) =>{
         setImageMovie(data.poster_path)
@@ -28,7 +28,7 @@ export default function Detail(){
             
             <h1 className="text-white text-3xl font-roboto font-semibold p-4 text-left">{title}</h1>
             <div className="w-80 m-auto">
-                <img className="rounded-2xl border" src={imageUrl+imageMovie} alt="" />
+                <img className="rounded-2xl border" src={imageMovie != null ? imageUrl + imageMovie : '../src/assets/imagens/no_image_md.png'} alt="" />
                 <div className="flex justify-between">
                     <p>1</p>
                     <p>2</p>
