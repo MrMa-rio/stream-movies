@@ -9,7 +9,7 @@ const Upcoming = () => {
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const movies = "upcoming"
     const [ page, setPage ] = useState(1);
-    const [bgMovie, setBgMovie] = useState()
+    const [bgMovie, setBgMovie] = useState(null)
     useEffect(() =>{
         getMovies(movies,page).then((data) => {
             setUpcomingMovies(data.results)
@@ -23,7 +23,7 @@ const Upcoming = () => {
        return(
         <div className="grid grid-cols-5 grid-rows-5 bg-primary bg-fixed w-screen ">
             <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative"> 
-                <img className="fixed w-screen h-fit blur-sm " src={bgMovie} alt="" />
+                <img className="fixed w-screen h-fit blur-sm " src={bgMovie && bgMovie != null ? bgMovie : '../src/assets/imagens/no_image.png'} alt="" />
             </div>
             {/*<button className="relative text-white text-center bg-white" onClick={()=> setPage((prev)=> prev + 1)}>+1</button>*/}
             {upcoming_movies.map((movie) =>  <div className="">

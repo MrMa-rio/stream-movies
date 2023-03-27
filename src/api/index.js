@@ -10,6 +10,7 @@ export const getMovies = async (type_movies,page) => {
     try{
         const response = await fetch(`${url_api}movie/${type_movies}${api_key}${region}&page=${page}`)
         const data = await response.json()
+        
         return data
     } catch(error) {
         console.error(error)
@@ -17,11 +18,11 @@ export const getMovies = async (type_movies,page) => {
     
 }
 export const randomMovies = async () =>{
- 
+    const page = 1 //temp
     const type_movies = 'upcoming'
     try {
 
-        const response = await getMovies(type_movies,1)
+        const response = await getMovies(type_movies,page)
         const result = await response.results
         const data = result[randomNumber]
         console.log(data)
