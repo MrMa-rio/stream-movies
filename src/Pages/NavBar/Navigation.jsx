@@ -1,8 +1,34 @@
-import { Link } from "react-router-dom"
+
+import { Link, redirect, useNavigate } from "react-router-dom"
+import { Search } from "../../components/search/search"
+import { useState, useRef, useEffect } from "react";
 
 
 function NavBar(){
    
+    const [text, setText] = useState('');
+    const navigate = useNavigate()
+    const timeToCallSomething = useRef(null);
+
+    
+    
+    useEffect(() => {
+        if (timeToCallSomething.current) {
+            clearInterval(timeToCallSomething.current);
+        }
+        timeToCallSomething.current = setTimeout(() =>{
+            if(text != '' ){
+                navigate(`/search/${text}`) 
+            }
+        }, 2000);
+        return () => clearInterval(timeToCallSomething.current);
+
+
+    }, [text]);
+
+    const onChangeHandler = ({ target: { value } }) => {
+        setText(value);
+    };
     
     return(
         <div className=" hover:text-white w-fit font-roboto font-semibold bg-slate-700 hover:transition-all duration-700 hover:bg-opacity-50 bg-opacity-25 rounded-xl p-10">
@@ -25,7 +51,8 @@ function NavBar(){
                         </Link>                   
                     </ul>
                 </li>
-                <input className=" w-full bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
+                <input onChange={onChangeHandler} className=" w-full bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
+                
             </nav>
         </div>
         

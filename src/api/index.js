@@ -17,6 +17,17 @@ export const getMovies = async (type_movies,page) => {
     }
     
 }
+
+export const getResultMovies = async (query) =>{
+    try {
+        const response = await fetch(`${url_api}search/movie${api_key}${region}&page=1&include_adult=false&query=${query}`)
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export const randomMovies = async () =>{
     const page = 1 //temp
     const type_movies = 'upcoming'

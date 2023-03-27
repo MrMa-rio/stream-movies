@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 import './index.css'
 import Detail from './Pages/Detail'
+import { Search } from './components/search/search'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -23,8 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/popular' element={<Popular name='Popular' />} />
           <Route path='/upcoming' element={<Upcoming name='Upcoming_Movies' />} />
           <Route path='/top' element={<Top name='Top Movies' />} />
-          
-            <Route path='/details/:id' element={<Detail />} />
+          <Route path='/details/:id' element={<Detail />} />
+          <Route path='/search/:id' element={<Search />} />
           
         </Routes>
 
