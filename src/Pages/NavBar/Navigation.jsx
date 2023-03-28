@@ -1,6 +1,5 @@
 
 import { Link, redirect, useNavigate } from "react-router-dom"
-import { Search } from "../../components/search/search"
 import { useState, useRef, useEffect } from "react";
 
 

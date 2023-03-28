@@ -24,6 +24,7 @@ const Popular = () => {
         getMovies(movies,page).then((data) => {
             setPopularMovies(data.results)
         })
+        
         randomMovies().then((data) => {
             setBgMovie(data)
         })

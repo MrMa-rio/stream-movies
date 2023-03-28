@@ -14,7 +14,7 @@ export default function Detail(){
     const [average, setAverage] = useState(0.0)
     const [date, setDate] = useState()
     const imageUrl = "https://image.tmdb.org/t/p/w1280"
-
+    console.log(movie_id)
     useEffect(() =>{
         getDetailsMovie(movie_id.id).then((data) =>{
             setImageMovie(data.poster_path)
@@ -41,6 +41,7 @@ export default function Detail(){
             
             <div className="flex items-center  justify-between p-24 relative bg-zinc-800 w-fit bg-opacity-20 rounded-xl">
                 <div>
+                <Link to="/"><button className=" rounded-xl bg-transparent hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
                     <div className="bg-zinc-900 rounded-xl bg-opacity-20 p-10">
                         <div className="flex justify-between rounded-t-xl bg-zinc-900 bg-opacity-60 p-10 text-white">
                             <div>
@@ -65,7 +66,7 @@ export default function Detail(){
                     </div>
                     <div className="flex gap-4 text-white font-bold mt-5 ">
                         <button className=" rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>
-                        <Link to="/"><button className=" rounded-xl bg-red-900 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
+                        
                         
                     </div>
                 </div>

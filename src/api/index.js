@@ -32,7 +32,7 @@ export const randomMovies = async () =>{
     const page = 1 //temp
     const type_movies = 'upcoming'
     try {
-
+        
         const response = await getMovies(type_movies,page)
         const result = await response.results
         const data = result[randomNumber]

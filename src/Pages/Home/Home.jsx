@@ -15,9 +15,10 @@ function Home() {
   
   const [bgMovie, setBgMovie] = useState()
   useEffect(() =>{
-     randomMovies().then((data) => {
+    
+    randomMovies().then((data) => {
       setBgMovie(data)
-     })
+    })
   },[])
   
  
