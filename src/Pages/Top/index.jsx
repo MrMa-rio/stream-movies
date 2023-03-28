@@ -2,9 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ImageCard from "../../components/imageCard/imageCard";
 import { randomMovies, getMovies } from "../../api";
+import { Link } from "react-router-dom";
+import { Page } from "../../components/Pages/Pages";
 import { Refresh } from "../../components/refresh/refresh";
 
 const Top = () => {
+
+    function stepPage(page){
+        setPage((prev) => prev + (page))
+    }
 
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const [top_movies, setTopMovies] = useState(null)
@@ -23,13 +29,26 @@ const Top = () => {
     
     if(top_movies != null){
         return(
-            <div className=" grid grid-cols-5 grid-rows-5 bg-fixed w-screen  bg-primary ">
-                <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative"> 
+            <div className="bg-primary">
+                <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative">
                     <img className="fixed w-screen h-fit blur-sm " src={bgMovie} alt="" />
-                </div> 
-                {top_movies.map((movie) =>  <div className="p-10">
-                    <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
-                </div> )}
+                </div>
+
+                <div className="pt-10">
+                    <div className="flex justify-center gap-2">
+                       
+                        <Link to="/"><button className="relative block m-auto rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/home.png" alt="" /></button></Link>
+                        {page != 1 ? <button onClick={() => stepPage(-1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_left.png" alt="" /></button> : null}
+                         <Page page={page} />
+                        {page < 10 ? <button onClick={() => stepPage(+1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_right.png" alt="" /></button> : null}
+                    </div>
+                </div>
+
+                <div className=" grid grid-cols-5 grid-rows-5 bg-fixed w-screen  bg-primary ">
+                    {top_movies.map((movie) =>  <div className="p-10">
+                        <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
+                    </div> )}
+                </div>
             </div>
         )
     }

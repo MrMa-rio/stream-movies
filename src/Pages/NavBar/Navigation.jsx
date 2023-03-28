@@ -32,7 +32,7 @@ function NavBar(){
     
     return(
         <div className=" hover:text-white w-fit font-roboto font-semibold bg-slate-700 hover:transition-all duration-700 hover:bg-opacity-50 bg-opacity-25 rounded-xl p-10">
-            <img className="hover:w-40 hover:transition-all hover:opacity-90 duration-700 w-32 rounded-full hover:rounded-3xl m-auto opacity-40 shadow-xl shadow-gray-800" src="../src/assets/imagens/image3.jpg" alt="" />
+            <img className="hover:w-60 hover:transition-all hover:opacity-100 duration-700 w-40 opacity-70 rounded-full m-auto  " src="../src/assets/imagens/CORNFLIXBR_rect.png" alt="" />
             <nav>
                 <li className="list-none flex gap-4 p-3  ">
                     <ul>

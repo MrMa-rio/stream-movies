@@ -65,7 +65,8 @@ export default function Detail(){
                     </div>
                     <div className="flex gap-4 text-white font-bold mt-5 ">
                         <button className=" rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>
-                        <Link to="/"><button className=" rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">HOME</button></Link>
+                        <Link to="/"><button className=" rounded-xl bg-red-900 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
+                        
                     </div>
                 </div>
                 
