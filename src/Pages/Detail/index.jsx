@@ -12,6 +12,7 @@ export default function Detail(){
     const [title, setTitle] = useState()
     const [genres, setGenres] = useState([])
     const [average, setAverage] = useState(0.0)
+    const [date, setDate] = useState()
     const imageUrl = "https://image.tmdb.org/t/p/w1280"
 
     useEffect(() =>{
@@ -22,6 +23,7 @@ export default function Detail(){
             setTitle(data.title)
             setGenres(data.genres)
             setAverage(data.vote_average)
+            setDate(data.release_date.substring(0,4))
         })
     },[])
     
@@ -41,15 +43,19 @@ export default function Detail(){
                 <div>
                     <div className="bg-zinc-900 rounded-xl bg-opacity-20 p-10">
                         <div className="flex justify-between rounded-t-xl bg-zinc-900 bg-opacity-60 p-10 text-white">
-                            <div className="flex gap-3 p-3 pl-1 rounded-xl" >
-                               {genres.map(result => <p className="bg-zinc-900 bg-opacity-60 p-1">{result.name.toUpperCase()}</p>)}
+                            <div>
+                                <div className="flex gap-3 p-3 pl-1 rounded-xl" >
+                                   {genres.map(result => <p className="bg-zinc-900 bg-opacity-60 rounded-sm p-1">{result.name.toUpperCase()}</p>)}
+                                
+                                </div>
+                                <p className=" bg-zinc-800 bg-opacity-60 p-1 font-roboto rounded-md">LANÇAMENTO: {date}</p>
                             </div>
                             <div>
                                 <p className="p-2 bg-yellow-400 bg-opacity-20 rounded-xl ">Avaliação: {average.toFixed(1)}</p>
                             </div>
                         </div>
                         <div className=" bg-zinc-900 bg-opacity-40 p-3 rounded-b-xl">
-                            <h1 className="text-white text-3xl font-roboto font-semibold p-4 text-left">{title}</h1>
+                            <h1 className="text-white text-3xl max-w-screen-sm font-roboto font-semibold p-4 text-left">{title}</h1>
                             <h2 className="text-white font-semibold text-2xl pt-8 pl-5">SINOPSE:</h2>
                             <div className="w-smartphone h-  rounded-xl">
                                 <p className="text-justify p-10 text-white text-lg w-full h-40 overflow-scroll">{overView}</p>
