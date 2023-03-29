@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getMovies,randomMovies } from "../../api";
-import ImageCard from "../../components/imageCard/imageCard";
+import { ImageCard } from "../../components/imageCard/imageCard";
 import { Refresh } from "../../components/refresh/refresh";
 import { Page } from "../../components/Pages/Pages";
 import { Link } from "react-router-dom";
-const Upcoming = () => {
 
+export const Upcoming = () => {
 
-    function stepPage(page){
+    const stepPage = (page)=>{
         setPage((prev) => prev + (page))
     }
 
@@ -61,5 +61,5 @@ const Upcoming = () => {
     
 }
 
-export default Upcoming
+
 

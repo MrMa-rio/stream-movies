@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
 
 
 export const Page = ({page})=> {
 
-    
-    console.log(page)
     const stepPrim = page + 1 < 8 ? page + 1 : 8
     const stepSec = page + 2 < 9 ? page + 2 : 9
     const stepTerc = page + 3 < 10 ? page + 3 : 10
     
-
-    
-
     if(page > 1){
         return(
             <div className="flex justify-center gap-2">

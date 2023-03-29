@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
-import ImageCard from "../../../components/imageCard/imageCard";
-import { 
-    getMovies,
- } from "../../../api";
+import {ImageCard} from "../../../components/imageCard/imageCard";
+import {getMovies} from "../../../api";
 import { Refresh } from "../../../components/refresh/refresh";
 
-const Lancamentos = () => {
+export const Lancamentos = () => {
 
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const [upcoming_movies, setUpcomingMovies] = useState(null)                
@@ -23,10 +21,8 @@ const Lancamentos = () => {
         if(upcoming_movies != null){
             return( 
                 <div>
-                    <h3 className="text-white text-center  font-bold text-3xl p-3 ">Lançamentos</h3>
-                    
+                    <h3 className="text-white text-center font-bold text-3xl p-3 ">Lançamentos</h3>
                     <Swiper
-                    
                         spaceBetween={30}
                         centeredSlides={true}
                         autoplay={{
@@ -54,19 +50,4 @@ const Lancamentos = () => {
     }
 }
 
-export default Lancamentos
 
-
-
-
-        /* {!data  // Renderezicao condicional
-        //     ? (
-        //         <div>loading</div>
-        //     )
-        //     : (
-        //         {data.map(()=>{
-
-        //         })}
-        //     )
-
-        / }*/

@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getMovies, randomMovies } from "../../api";
-import ImageCard from "../../components/imageCard/imageCard";
+import {ImageCard} from "../../components/imageCard/imageCard";
 import { Refresh } from "../../components/refresh/refresh";
 import { Link } from "react-router-dom";
 import { Page } from "../../components/Pages/Pages";
 
 
-const Popular = () => {
+export const Popular = () => {
 
-    function stepPage(page){
+    const  stepPage = (page) => {
         setPage((prev) => prev + (page))
     }
-
-    //function changePage()
 
     const [popularMovies, setPopularMovies] = useState(null)
     const imageUrl = "https://image.tmdb.org/t/p/original"
@@ -59,8 +57,4 @@ const Popular = () => {
             <Refresh />
         )
     }
-
-    
 }
-
-export default Popular

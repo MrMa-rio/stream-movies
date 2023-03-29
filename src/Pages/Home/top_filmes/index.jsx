@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
-import ImageCard from "../../../components/imageCard/imageCard";
+import {ImageCard} from "../../../components/imageCard/imageCard";
 import { getMovies } from "../../../api";
 import { Refresh } from "../../../components/refresh/refresh";
 
-const Top_Filmes = () => {
+export const Top_Filmes = () => {
 
     const top_movie = "top_rated"
     const imageUrl = "https://image.tmdb.org/t/p/original"
@@ -21,7 +21,7 @@ const Top_Filmes = () => {
     if(top_movies != null){
         return(
             <div>
-                <h3 className="text-white text-center  font-bold text-3xl p-3 ">Top Filmes</h3>
+                <h3 className="text-white text-center font-bold text-3xl p-3 ">Top Filmes</h3>
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -49,4 +49,3 @@ const Top_Filmes = () => {
     }
     
 }
-export default Top_Filmes

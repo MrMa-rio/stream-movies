@@ -1,14 +1,13 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import ImageCard from "../../components/imageCard/imageCard";
+import {ImageCard} from "../../components/imageCard/imageCard";
 import { randomMovies, getMovies } from "../../api";
 import { Link } from "react-router-dom";
 import { Page } from "../../components/Pages/Pages";
 import { Refresh } from "../../components/refresh/refresh";
 
-const Top = () => {
+export const Top = () => {
 
-    function stepPage(page){
+    const stepPage = (page) => {
         setPage((prev) => prev + (page))
     }
 
@@ -59,4 +58,3 @@ const Top = () => {
     }
 }
 
-export default Top

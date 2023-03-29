@@ -2,26 +2,21 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getResultMovies } from "../../api";
 import { Refresh } from "../refresh/refresh";
-import ImageCard from "../imageCard/imageCard";
+import {ImageCard} from "../imageCard/imageCard";
 
 export const Search = (props) =>{
-
 
     const [text, setText] = useState('');
     const navigate = useNavigate()
     const timeToCallSomething = useRef(null);
-
     const onChangeHandler = ({ target: { value } }) => {
         setText(value);
     };
-
-
     const [searchMovies, setSearchMovies] = useState(null)
     const imageUrl = "https://image.tmdb.org/t/p/original"
-    
-    //const [page,setPage] = useState(1)
     const search = useParams()
     const [bgImage, setBgImage] = useState()
+
     useEffect(() =>{
 
         if (timeToCallSomething.current) {
@@ -37,7 +32,6 @@ export const Search = (props) =>{
     },[text])
 
     useEffect(() =>{
-
         getResultMovies(search.id).then(data =>{
             setSearchMovies(data.results)
             console.log(data.results)
@@ -47,20 +41,17 @@ export const Search = (props) =>{
     if(searchMovies != null){
         return(
             <div className="bg-primary ">
-                <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative">
-                    <img className="fixed w-screen h-fit blur-sm " src={bgImage} alt="" />
+                <div className="w-screen h-fit bg-primary bg-center bg-cover relative">
+                    <img className="fixed w-screen h-fit blur-sm  " src={bgImage} alt="" />
                 </div>
-                
                 <div className="">
                     <div className="grid grid-cols-5 grid-rows-5 bg-fixed w-screen bg-primary">
-                    
-                        {searchMovies.map((movie) =>  <div  className="p-14 ">
+                        {searchMovies.map((movie) =>  <div  className="p-14 mt-14 ">
                             <div className="hover:transition-all duration-700 p-4" onMouseEnter={e => setBgImage(e.target.src ? e.target.src : '../src/assets/imagens/backgroundImage.jpg')}>
                                 <ImageCard  name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
                             </div>
                         </div> )}
                     </div>
-                    
                 </div>
                 <div className="flex justify-center ">
                     <div className=" fixed top-0 ">
