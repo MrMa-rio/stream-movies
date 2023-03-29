@@ -29,8 +29,8 @@ export const getResultMovies = async (query) =>{
 }
 
 export const randomMovies = async () =>{
-    const page = 1 //temp
-    const type_movies = 'upcoming'
+    const page = 2 //temp
+    const type_movies = 'popular'
     try {
         
         const response = await getMovies(type_movies,page)

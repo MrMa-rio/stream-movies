@@ -21,7 +21,7 @@ function Home() {
   return (
     <div className="bg-primary transition-all ease-out w-screen h-fit">
       <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative"> 
-        <img className="absolute w-screen h-fit blur-sm super-small:object-cover super-small:fixed super-small:h-screen small:object-cover small:fixed small:h-screen" src={bgMovie} alt="" />
+        <img className="absolute w-screen h-fit blur-sm super-small:object-cover super-small:fixed super-small:h-screen " src={bgMovie} alt="" />
         <div>
           <div className="relative xl:pt-0 pt-32">
             <div className="bg-opacity-0 xl:hidden relative rounded-lg bg-slate-400">
