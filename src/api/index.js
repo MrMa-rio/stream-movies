@@ -1,7 +1,7 @@
 
 const imageUrl = 'https://image.tmdb.org/t/p/original'
 let randomNumber = Math.floor( Math.random() * 17) 
-const api_key = import.meta.env.VITE_API_KEY  //?api_key=bbce7d7263ec1765a0e2e55bb1cc0aef
+const api_key = import.meta.env.VITE_API_KEY 
 const url_api = "https://api.themoviedb.org/3/"
 const url_configuration = "configuration"
 const region = "&language=pt-BR"
