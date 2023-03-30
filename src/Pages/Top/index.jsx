@@ -18,7 +18,7 @@ export const Top = () => {
     const [bgMovie, setBgMovie] = useState()
     useEffect(() =>{
         
-        getMovies(movies).then((data) => {
+        getMovies(movies,page).then((data) => {
             setTopMovies(data.results)
         })
         randomMovies().then((data) => {
@@ -38,7 +38,7 @@ export const Top = () => {
                        
                         <Link to="/"><button className="relative block m-auto rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/home.png" alt="" /></button></Link>
                         {page != 1 ? <button onClick={() => stepPage(-1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_left.png" alt="" /></button> : null}
-                         <Page page={page} />
+                            <Page page={page} />
                         {page < 10 ? <button onClick={() => stepPage(+1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_right.png" alt="" /></button> : null}
                     </div>
                 </div>

@@ -45,7 +45,7 @@ export const Search = (props) =>{
                     <img className="fixed w-screen h-fit blur-sm super-small:object-cover super-small:h-screen " src={bgImage ? bgImage : '../src/assets/imagens/backgroundImage.jpg' } alt="" />
                 </div>
                 <div>
-                    <div className="xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-fixed w-screen bg-primary">
+                    <div className="xl:grid xl:grid-cols-5 xl:grid-rows-5 pt-20 xl:p-0 bg-fixed w-screen bg-primary">
                         {searchMovies.map((movie) =>  <div  className="p-14 xl:mt-14 relative ">
                             <div className="hover:transition-all duration-700 p-4" onMouseEnter={e => setBgImage(e.target.src ? e.target.src : '../src/assets/imagens/backgroundImage.jpg')}>
                                 <ImageCard  name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
@@ -55,7 +55,7 @@ export const Search = (props) =>{
                 </div>
                 <div className="flex justify-center ">
                     <div className=" fixed top-0 ">
-                        <div className="flex justify-center top-5  relative items-center xl:p-5 super-small:p-3 super-small:w-screen xl:w-fit gap-3 bg-primary bg-opacity-60 text-white rounded-xl">
+                        <div className="flex justify-center top-3  relative items-center xl:p-5 super-small:p-3 super-small:w-screen xl:w-fit gap-3 bg-primary bg-opacity-60 text-white rounded-xl">
                             <Link to="/"><button className=" relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
                             <input onChange={onChangeHandler} className=" relative w-smartphone bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
                         </div>
