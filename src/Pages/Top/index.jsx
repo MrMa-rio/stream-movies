@@ -43,8 +43,8 @@ export const Top = () => {
                     </div>
                 </div>
 
-                <div className=" xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-fixed w-screen  bg-primary ">
-                    {top_movies.map((movie) =>  <div className="p-14 relative">
+                <div className=" md:grid md:grid-cols-4 md:grid-rows-6 xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-fixed w-screen  bg-primary ">
+                    {top_movies.map((movie) =>  <div className="super-small:p-5 md:p-4 xl:p-14 relative">
                         <ImageCard name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} typeMovie={movies} />
                     </div> )}
                     <Link to="/"><button className="relative block xl:hidden m-auto rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/home.png" alt="" /></button></Link>

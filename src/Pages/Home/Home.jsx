@@ -24,24 +24,24 @@ function Home() {
         <img className="absolute w-screen h-fit blur-sm super-small:object-cover super-small:fixed super-small:h-screen " src={bgMovie} alt="" />
         <div>
           <div className="relative xl:pt-0 pt-32">
-            <div className="bg-opacity-0 xl:hidden relative rounded-lg bg-slate-400">
+            <div className=" xl:hidden relative ">
               <NavBar />
             </div>
           </div>
           <div className="xl:block super-small:flex super-small:justify-center small:flex small:justify-center">
             <div className="xl:flex xl:justify-between xl:pl-40 xl:pr-40 xl:pt-0">
-              <div className="xl:w-80 w-64 h-fit relative xl:mt-10 rounded-lg xl:bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
+              <div className="xl:w-80 super-small:w-64 md:w-screen h-fit relative xl:mt-10 rounded-lg xl:bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
                 <Lancamentos />
               </div>
               <div className="block">
                 <div className="bg-opacity-0 xl:w-fit xl:h-fit xl:relative super-small:hidden small:hidden xl:block relative xl:mt-10 rounded-lg bg-slate-400">
                   <NavBar />
                 </div>
-                <div className="m-auto xl:w-80 w-64 xl:mt-20 h-fit relative rounded-lg bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
+                <div className="m-auto xl:w-80 super-small:w-64 md:w-screen xl:mt-20 h-fit relative rounded-lg bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
                   <Top_Filmes />
                 </div>
               </div>
-              <div className="xl:w-80 w-64 h-fit relative xl:mt-10 rounded-lg bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
+              <div className="xl:w-80 super-small:w-64 md:w-screen h-fit relative xl:mt-10 rounded-lg bg-slate-400 xl:bg-opacity-20 super-small:bg-opacity-0 small:bg-opacity-0">
                 <Popular_Filmes />
               </div>
             </div>

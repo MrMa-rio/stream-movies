@@ -31,13 +31,17 @@ export const Detail = () => {
         <div className=" xl:flex xl:justify-center xl:items-center bg-primary w-screen h-screen ">
             <img className="xl:absolute super-small:fixed w-screen blur-sm super-small:object-cover super-small:object-center super-small:h-screen " src={imageUrl+imageBg} alt="" />
             <div className="xl:flex xl:items-center xl:justify-between xl:p-24 relative bg-zinc-800 w-fit super-small:bg-opacity-0 xl:bg-opacity-20 rounded-xl">
-                <div className="p-4">
-                    <Link to="/"><button className="p-1 rounded-xl xl:hidden bg-red-700 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
+                <div className="flex p-4 gap-2">
+                    { movie_id.searchId != 'comum' ? <Link to={`/search/${movie_id.searchId}`}><button className="p-1 rounded-xl xl:hidden bg-red-700 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="/src/assets/imagens/arrow_left.png" alt="" /></button></Link> : <></>}
+                    <Link to="/"><button className="p-1 rounded-xl xl:hidden bg-red-700 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="/src/assets/imagens/home.png" alt="" /></button></Link>
                     
                 </div>
                 <div className="xl:hidden w-screen flex justify-center items-center "><img className=" super-small:w-56 mt-32 rounded-xl m-auto xl:hidden" src={imageMovie != null ? imageUrl + imageMovie : '../src/assets/imagens/no_image_md.png'} alt="" /></div>
                 <div>
-                    <Link to="/"><button className="rounded-xl super-small:hidden xl:block bg-transparent hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="../src/assets/imagens/home.png" alt="" /></button></Link>
+                    <div className="xl:flex xl:gap-2">
+                        { movie_id.searchId != 'comum' ? <Link to={`/search/${movie_id.searchId}`}><button className="rounded-xl super-small:hidden xl:block bg-transparent hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="/src/assets/imagens/arrow_left.png" alt="" /></button></Link> : <div></div>}
+                        <Link to="/"><button className="rounded-xl super-small:hidden xl:block bg-transparent hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src="/src/assets/imagens/home.png" alt="" /></button></Link>
+                    </div>
                     <div className= "super-small:bg-opacity-0 xl:bg-opacity-20 bg-zinc-900 rounded-xl xl:p-10">
                         <div className="flex xl:justify-between rounded-t-xl bg-zinc-900 super-small:bg-opacity-0 super-small:p-2 xl:bg-opacity-60 xl:p-10 text-white">
                             <div>

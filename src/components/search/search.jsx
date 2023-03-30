@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getResultMovies } from "../../api";
 import { Refresh } from "../refresh/refresh";
 import {ImageCard} from "../imageCard/imageCard";
+import { NotFound } from "../../Pages/NotFound/NotFound";
 
 export const Search = (props) =>{
 
@@ -16,6 +17,7 @@ export const Search = (props) =>{
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const search = useParams()
     const [bgImage, setBgImage] = useState(null)
+    
 
     useEffect(() =>{
 
@@ -37,8 +39,9 @@ export const Search = (props) =>{
             console.log(data.results)
         } )
     },[search])
+    console.log(search)
     
-    if(searchMovies != null){
+    if(searchMovies != null && Object.keys(searchMovies).length > 0){
         return(
             <div className="bg-primary ">
                 <div className="w-screen h-fit bg-primary bg-center bg-cover relative">
@@ -48,7 +51,7 @@ export const Search = (props) =>{
                     <div className="xl:grid xl:grid-cols-5 xl:grid-rows-5 pt-20 xl:p-0 bg-fixed w-screen bg-primary">
                         {searchMovies.map((movie) =>  <div  className="p-14 xl:mt-14 relative ">
                             <div className="hover:transition-all duration-700 p-4" onMouseEnter={e => setBgImage(e.target.src ? e.target.src : '../src/assets/imagens/backgroundImage.jpg')}>
-                                <ImageCard  name={movie.title} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                                <ImageCard  name={movie.title} id={movie.id} prev={search.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
                             </div>
                         </div> )}
                     </div>
@@ -62,6 +65,11 @@ export const Search = (props) =>{
                     </div>
                 </div>
             </div>
+        )
+    }
+    if(searchMovies == null || Object.keys(searchMovies).length == 0 ){
+        return(
+            <NotFound />
         )
     }
     else{

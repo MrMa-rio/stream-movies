@@ -23,6 +23,7 @@ export const Top_Filmes = () => {
             <div>
                 <h3 className="text-white text-center font-bold text-3xl p-3 ">Top Filmes</h3>
                 <Swiper
+                className="md:hidden xl:block"
                     spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
@@ -39,6 +40,25 @@ export const Top_Filmes = () => {
                         link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} /> 
                     </SwiperSlide> )} 
                 </Swiper>
+                <Swiper
+                        className="super-small:hidden md:block xl:hidden"
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                        delay: 7000,
+                        disableOnInteraction: false,
+                        }}
+                        navigation={true}
+                        modules={[Autoplay, Navigation]}
+                    >
+                        {top_movies.map(movie => <SwiperSlide key={movie.id} ><ImageCard 
+                                name={movie.title} 
+                                key={movie.id}
+                                id={movie.id}
+                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                        </SwiperSlide> )} 
+                    </Swiper>
             </div>
         )
     }
