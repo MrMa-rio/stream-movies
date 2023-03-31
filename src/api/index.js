@@ -16,7 +16,20 @@ export const getMovies = async (type_movies,page) => {
     }
     
 }
+export const getTrailerMovie = async (id) => {
 
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=bbce7d7263ec1765a0e2e55bb1cc0aef&language=pt-BR`)
+        const data = await response.json()
+        const results = await data.results
+        const result = results[results.length-1].key ? results[results.length-1].key : null
+        return result
+    } catch (error) {
+        console.error(error)
+    }
+    
+    
+}
 export const getResultMovies = async (query) =>{
     try {
         const response = await fetch(`${url_api}search/movie${api_key}${region}&page=1&include_adult=false&query=${query}`)

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDetailsMovie } from "../../api";
+import { getDetailsMovie, getTrailerMovie } from "../../api";
 import ArrowLeft from '../../assets/imagens/arrow_left.png'
 import NoImage from '../../assets/imagens/no_image_md.png'
 import Home from '../../assets/imagens/home.png'
 export const Detail = () => {
 
     const movie_id = useParams()
+    const [btnTrailer,setBtnTrailer] = useState(false)
     const [imageMovie, setImageMovie] = useState(null)
     const [imageBg, setImageBg] = useState(null)
     const [overView, setOverView] = useState()
@@ -14,6 +15,8 @@ export const Detail = () => {
     const [genres, setGenres] = useState([])
     const [average, setAverage] = useState(0.0)
     const [date, setDate] = useState()
+    const [trailer, setTrailer] = useState(null)
+    
     const imageUrl = "https://image.tmdb.org/t/p/w1280"
 
     useEffect(() =>{
@@ -25,18 +28,24 @@ export const Detail = () => {
             setGenres(data.genres)
             setAverage(data.vote_average)
             setDate(data.release_date.substring(0,4))
+            getTrailerMovie(movie_id.id).then(data => setTrailer(data))
         })
     },[])
     
+    
     return(
-        <div className=" xl:flex xl:justify-center xl:items-center bg-primary w-screen h-screen ">
+        <div  className=" xl:flex xl:justify-center xl:items-center bg-primary w-screen h-screen ">
             <img className="xl:absolute super-small:fixed w-screen blur-sm super-small:object-cover super-small:object-center super-small:h-screen " src={imageUrl+imageBg} alt="" />
             <div className="xl:flex xl:items-center xl:justify-between xl:p-24 relative bg-zinc-800 w-fit super-small:bg-opacity-0 xl:bg-opacity-20 rounded-xl">                                                                                            
                 <div className="flex p-4 gap-2">
                     { movie_id.searchId != 'comum' ? <Link to={`/search/${movie_id.searchId}`}><button className="p-1 rounded-xl xl:hidden bg-red-700 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src={ArrowLeft} alt="" /></button></Link> : <></>}
                     <Link to="/"><button className="p-1 rounded-xl xl:hidden bg-red-700 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src={Home} alt="" /></button></Link>
                 </div>
-                <div className="xl:hidden w-screen flex justify-center items-center "><img className=" super-small:w-56 mt-32 rounded-xl m-auto xl:hidden" src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" /></div>
+                <div className="xl:hidden w-screen flex justify-center items-center ">
+                    <img className=" super-small:w-56 mt-32 rounded-xl m-auto xl:hidden" src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" />
+                   
+                </div>
+                {trailer != null ? <button onClick={ ()=> setBtnTrailer(btnTrailer ? false : true) } className=" super-small:block md:hidden m-auto mt-4 text-white rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button> : <></>}
                 <div>
                     <div className="xl:flex xl:gap-2">
                         { movie_id.searchId != 'comum' ? <Link to={`/search/${movie_id.searchId}`}><button className="rounded-xl super-small:hidden xl:block bg-transparent hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg "><img className="m-auto" src={ArrowLeft} alt="" /></button></Link> : <div></div>}
@@ -65,8 +74,9 @@ export const Detail = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex gap-4 text-white font-bold mt-5 ">
-                        {/*<button className=" xl:block super-small:hidden rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>*/}
+                    <div className="flex gap-4 text-white font-bold mt-5 p-5 ">
+                        {trailer != null ? <button onClick={ ()=> setBtnTrailer(btnTrailer ? false : true) } className=" super-small:hidden md:block  rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button> : <></>}
+                        {trailer != null && btnTrailer == true ? <div onClick={() => setBtnTrailer(false)} className="fixed top-0 left-0 bg-black w-screen h-screen bg-opacity-60 " ><div className="flex justify-center items-center pt-60"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div> : <></>}
                     </div>
                 </div>
                 <img className="  xl:w-96 super-small:hidden xl:block rounded-xl  xl:ml-14 " src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" />    
