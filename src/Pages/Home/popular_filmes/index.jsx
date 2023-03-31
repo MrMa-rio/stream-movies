@@ -4,7 +4,7 @@ import { Autoplay, Navigation } from "swiper";
 import {ImageCard} from "../../../components/imageCard/imageCard";
 import { getMovies } from "../../../api";
 import { Refresh } from "../../../components/refresh/refresh";
-
+import NoImage from "../../../assets/imagens/no_image.png"
  export const Popular_Filmes = () => {
 
     const imageUrl = "https://image.tmdb.org/t/p/original"
@@ -37,7 +37,7 @@ import { Refresh } from "../../../components/refresh/refresh";
                                 name={movie.title} 
                                 key={movie.id}
                                 id={movie.id}
-                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : NoImage} />
                         </SwiperSlide> )} 
                     </Swiper>
                     <Swiper
@@ -56,7 +56,7 @@ import { Refresh } from "../../../components/refresh/refresh";
                                 name={movie.title} 
                                 key={movie.id}
                                 id={movie.id}
-                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
+                                link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : NoImage} />
                         </SwiperSlide> )} 
                     </Swiper>
                 </div>
