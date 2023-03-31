@@ -1,7 +1,6 @@
 
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react";
-
 export const NavBar = () => {
    
     const [text, setText] = useState('');
