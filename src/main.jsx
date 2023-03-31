@@ -21,7 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/top' element={<Top name='Top Movies' />} />
           <Route path='/details/:searchId?/:id' element={<Detail />} />
           <Route path='/search/:id' element={<Search />} />
-          
           <Route path='*' element={<NotFound />} />
         </Routes>
       </div>

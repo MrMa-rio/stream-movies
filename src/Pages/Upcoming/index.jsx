@@ -9,7 +9,6 @@ export const Upcoming = () => {
     const stepPage = (page)=>{
         setPage((prev) => prev + (page))
     }
-
     const [upcoming_movies, setUpcomingMovies] = useState(null)
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const movies = "upcoming"
@@ -30,17 +29,15 @@ export const Upcoming = () => {
         setStepSec(page+2 < 10 ? page+2 : 9 )
         setStepTerc(page+3 < 10 ? page+3 : 10 )
     },[page])
-    console.log(page)
+
     if(upcoming_movies != null){
         return(
             <div className="bg-primary">
                 <div className="w-screen h-fit bg-primary bg-center bg-cover transition-all relative">
                     <img className="fixed w-screen h-fit blur-sm super-small:object-cover super-small:h-screen " src={bgMovie && bgMovie != null ? bgMovie : '../src/assets/imagens/no_image.png'} alt="" />
                 </div>
-
                 <div className="pt-10">
                         <div className="flex justify-center gap-2">
-                        
                             <Link to="/"><button className="relative block m-auto rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/home.png" alt="" /></button></Link>
                             {page != 1 ? <button onClick={() => stepPage(-1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_left.png" alt="" /></button> : null}
                             <div className="flex justify-center gap-2">
@@ -51,7 +48,6 @@ export const Upcoming = () => {
                             {page < 8 ? <button onClick={() => stepPage(+1)} className="relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-fit h-fit hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto " src="../src/assets/imagens/arrow_right.png" alt="" /></button> : null}
                         </div>
                     </div>
-
                 <div className="md:grid md:grid-cols-4 md:grid-rows-6 xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-primary bg-fixed w-screen ">
                     {upcoming_movies.map((movie) =>  <div className="super-small:p-5 md:p-4 xl:p-14 relative">
                         <ImageCard name={movie.title} key={movie.id} id={movie.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
@@ -65,11 +61,5 @@ export const Upcoming = () => {
         return(
             <Refresh />
         )
-        
-    }
-
-    
+    }   
 }
-
-
-

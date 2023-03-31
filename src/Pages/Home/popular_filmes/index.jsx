@@ -59,7 +59,6 @@ import { Refresh } from "../../../components/refresh/refresh";
                                 link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : '../src/assets/imagens/no_image.png'} />
                         </SwiperSlide> )} 
                     </Swiper>
-                    
                 </div>
             )
         }
@@ -70,4 +69,3 @@ import { Refresh } from "../../../components/refresh/refresh";
         }
     }
 }
-

@@ -67,5 +67,4 @@ export const Top_Filmes = () => {
             <Refresh />
         )
     }
-    
 }

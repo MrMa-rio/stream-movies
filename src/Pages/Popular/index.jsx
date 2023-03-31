@@ -4,13 +4,11 @@ import {ImageCard} from "../../components/imageCard/imageCard";
 import { Refresh } from "../../components/refresh/refresh";
 import { Link } from "react-router-dom";
 
-
 export const Popular = () => {
 
     const  stepPage = (page) => {
         setPage((prev) => prev + (page))
     }
-
     const [popularMovies, setPopularMovies] = useState(null)
     const imageUrl = "https://image.tmdb.org/t/p/original"
     const movies = "popular"
@@ -25,7 +23,6 @@ export const Popular = () => {
         getMovies(movies,page).then((data) => {
             setPopularMovies(data.results)
         })
-        
         randomMovies().then((data) => {
             setBgMovie(data)
         })
@@ -33,8 +30,7 @@ export const Popular = () => {
         setStepSec(page+2 < 10 ? page+2 : 9 )
         setStepTerc(page+3 < 10 ? page+3 : 10 )
     },[page])
-    console.log(page)
-
+    
     if(popularMovies != null){
         return(
             <div className="bg-primary">

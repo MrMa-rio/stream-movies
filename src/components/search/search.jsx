@@ -5,7 +5,7 @@ import { Refresh } from "../refresh/refresh";
 import {ImageCard} from "../imageCard/imageCard";
 import { NotFound } from "../../Pages/NotFound/NotFound";
 
-export const Search = (props) =>{
+export const Search = () =>{
 
     const [text, setText] = useState('');
     const navigate = useNavigate()
@@ -18,7 +18,6 @@ export const Search = (props) =>{
     const search = useParams()
     const [bgImage, setBgImage] = useState(null)
     
-
     useEffect(() =>{
 
         if (timeToCallSomething.current) {
@@ -30,16 +29,14 @@ export const Search = (props) =>{
             }
         }, 2000);
         return () => clearInterval(timeToCallSomething.current);
-
     },[text])
 
     useEffect(() =>{
         getResultMovies(search.id).then(data =>{
             setSearchMovies(data.results)
-            console.log(data.results)
         } )
     },[search])
-    console.log(search)
+    
     
     if(searchMovies != null && Object.keys(searchMovies).length > 0){
         return(

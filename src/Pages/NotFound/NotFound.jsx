@@ -1,6 +1,5 @@
 import { NavBar } from "../NavBar/Navigation"
 
-
 export const NotFound = () =>{
     return(
         <div className="bg-primary h-screen">
@@ -11,7 +10,6 @@ export const NotFound = () =>{
                 <h1 className="text-7xl">Página não encontrada</h1>
                 <h2 className="text-4xl">404</h2>
                 <h2 className="text-4xl">:(</h2>
-                
             </div>
         </div>
     )
