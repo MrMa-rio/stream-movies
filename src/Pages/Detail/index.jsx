@@ -66,7 +66,7 @@ export const Detail = () => {
                         </div>
                     </div>
                     <div className="flex gap-4 text-white font-bold mt-5 ">
-                        <button className=" xl:block super-small:hidden rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>
+                        {/*<button className=" xl:block super-small:hidden rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>*/}
                     </div>
                 </div>
                 <img className="  xl:w-96 super-small:hidden xl:block rounded-xl  xl:ml-14 " src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" />    

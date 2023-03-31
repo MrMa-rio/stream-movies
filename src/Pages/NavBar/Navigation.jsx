@@ -30,7 +30,7 @@ export const NavBar = () => {
             <nav>
                 <li className="list-none xl:flex small:flex small:justify-center super-small:flex super-small:justify-center xl:relative gap-4 xl:p-3">
                     <ul>
-                        <Link to='/popular'>
+                        <Link to='popular'>
                             <p className="hover:bg-white hover:text-black p-3 rounded-md hover:transition-all duration-200">Populares</p>
                         </Link>                 
                     </ul>
