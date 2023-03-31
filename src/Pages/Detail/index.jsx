@@ -69,7 +69,7 @@ export const Detail = () => {
                         <button className=" xl:block super-small:hidden rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button>
                     </div>
                 </div>
-                <img className="  xl:w-96 super-small:hidden xl:block rounded-xl  xl:ml-14 " src={imageMovie != null ? imageUrl + imageMovie : '../src/assets/imagens/no_image_md.png'} alt="" />    
+                <img className="  xl:w-96 super-small:hidden xl:block rounded-xl  xl:ml-14 " src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" />    
             </div>
         </div>
     )
