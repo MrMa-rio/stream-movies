@@ -21,7 +21,7 @@ export const NavBar = () => {
     }, [text]);
 
     const onChangeHandler = ({ target: { value } }) => {
-        setText(value);
+        setText(value.trim().length === 0 ? '' : value);
     };
     
     return(

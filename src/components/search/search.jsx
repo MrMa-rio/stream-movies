@@ -14,7 +14,7 @@ export const Search = () =>{
     const navigate = useNavigate()
     const timeToCallSomething = useRef(null);
     const onChangeHandler = ({ target: { value } }) => {
-        setText(value);
+        setText(value.trim().length === 0 ? '' : value);
     };
     const [searchMovies, setSearchMovies] = useState(null)
     const imageUrl = "https://image.tmdb.org/t/p/original"
