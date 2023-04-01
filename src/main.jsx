@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <div className='w-screen'>
         <Routes>
-          <Route path="/" element={<Home />}  />
+          <Route exact path="/" element={<Home />}  />
           <Route path='/popular' element={<Popular name='Popular' />} />
           <Route path='/upcoming' element={<Upcoming name='Upcoming_Movies' />} />
           <Route path='/top' element={<Top name='Top Movies' />} />
