@@ -25,8 +25,8 @@ export const NavBar = () => {
     };
     
     return(
-        <div className=" hover:transition-all hover:text-white hover:bg-opacity-50 xl:w-fit super-small:w-screen md:w-smartphone md:m-auto super-small:bg-opacity-0 relative font-roboto font-semibold bg-slate-700 duration-700 bg-opacity-25 rounded-xl xl:p-10 small:p-2">
-            <Link to='/'><div className="w-64 h-36 m-auto"><img className="xl:hover:w-64 hover:transition-all hover:opacity-100 xl:shadow-none shadow-xl duration-700 xl:w-48 opacity-70 rounded-full xl:m-auto" src={Logo} alt="" /></div></Link>
+        <div className=" hover:transition-all hover:text-white hover:bg-opacity-20 xl:w-fit super-small:w-screen md:w-smartphone md:m-auto super-small:bg-opacity-0 relative font-roboto font-semibold bg-slate-700 duration-700 bg-opacity-25 rounded-xl xl:p-10 small:p-2">
+            <Link to='/'><div className=" super-small:w-full  w-full h-36 flex justify-center items-center"><img className="xl:hover:w-72 hover:transition-all hover:opacity-100 xl:shadow-none shadow-xl duration-700 xl:w-48 super-small:w-64 opacity-70 rounded-full " src={Logo} alt="" /></div></Link>
             <nav>
                 <li className="list-none xl:flex small:flex small:justify-center super-small:flex super-small:justify-center xl:relative gap-4 xl:p-3">
                     <ul>

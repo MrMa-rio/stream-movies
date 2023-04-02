@@ -76,7 +76,7 @@ export const Detail = () => {
                     </div>
                     <div className="flex gap-4 text-white font-bold mt-5 p-5 ">
                         {trailer != null ? <button onClick={ ()=> setBtnTrailer(btnTrailer ? false : true) } className=" super-small:hidden md:block  rounded-xl bg-red-900 hover:text-red-900 hover:bg-white w-28 h-9 hover:transition-all duration-200 hover:text-lg hover-">VER TRAILER</button> : <></>}
-                        {trailer != null && btnTrailer == true ? <div onClick={() => setBtnTrailer(false)} className="fixed top-0 left-0 bg-black w-screen h-screen bg-opacity-60 " ><div className="flex justify-center items-center pt-60"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div> : <></>}
+                        {trailer != null && btnTrailer == true ? <div onClick={() => setBtnTrailer(false)} className="fixed top-0 left-0 bg-black w-screen h-screen bg-opacity-60 " ><div className="flex justify-center items-center pt-60"><iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div> : <></>}
                     </div>
                 </div>
                 <img className="  xl:w-96 super-small:hidden xl:block rounded-xl  xl:ml-14 " src={imageMovie != null ? imageUrl + imageMovie : NoImage} alt="" />    
