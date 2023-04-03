@@ -48,7 +48,7 @@ export const Search = () =>{
                 </div>
                 <div>
                     <div className="xl:grid xl:grid-cols-5 xl:grid-rows-5 pt-20 xl:p-0 bg-fixed w-screen bg-primary">
-                        {searchMovies.map((movie) =>  <div  className="p-14 xl:mt-14 relative ">
+                        {searchMovies.map((movie) =>  <div key={movie.id} className="p-14 xl:mt-14 relative ">
                             <div className="hover:transition-all duration-700 p-4" onMouseEnter={e => setBgImage(e.target.src ? e.target.src : BackgroundImage)}>
                                 <ImageCard  name={movie.title} id={movie.id} prev={search.id} link={movie.poster_path && movie.poster_path !=null ? imageUrl + movie.poster_path : NoImage} />
                             </div>
@@ -59,21 +59,23 @@ export const Search = () =>{
                     <div className=" fixed top-0 ">
                         <div className="flex justify-center top-3  relative items-center xl:p-5 super-small:p-3 super-small:w-screen xl:w-fit gap-3 bg-primary bg-opacity-60 text-white rounded-xl">
                             <Link to="/"><button className=" relative rounded-xl bg-red-900 hover:text-red-900 hover:bg-white hover:transition-all duration-200 hover:text-lg hover-"><img className="m-auto" src={imageHome} alt="" /></button></Link>
-                            <input onChange={onChangeHandler} className=" relative w-smartphone bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
+                            <input onChange={onChangeHandler} className=" relative w-smartphone bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-    if(searchMovies == null || Object.keys(searchMovies).length == 0 ){
-        return(
-            <NotFound />
-        )
-    }
     else{
-        return(
-            <Refresh />
-        )
+        if(searchMovies != null && Object.keys(searchMovies).length == 0){
+            return(
+                <NotFound />
+            )
+        }
+        else{
+            return(
+                <Refresh />
+            )    
+        }
     }
 }
