@@ -55,7 +55,7 @@ export const Detail = () => {
                         <div className= "super-small:bg-opacity-0 xl:bg-opacity-20 bg-zinc-900 rounded-xl xl:p-10">
                             <div className="flex xl:justify-between rounded-t-xl bg-zinc-900 super-small:bg-opacity-0 super-small:p-2 xl:bg-opacity-60 xl:p-10 text-white">
                                 <div>
-                                    <div className="flex gap-3 w-fit p-3 pl-1 rounded-xl" >
+                                    <div className="flex gap-3  p-3 pl-1 super-small:w-96 md:w-fit super-small:overflow-x-scroll rounded-xl" >
                                         {genres.map(result => <p key={`${Math.floor(Math.random()*1000000)}`} className="bg-zinc-900 super-small:bg-opacity-40 xl:bg-opacity-60 super-small:rounded-xl xl:rounded-sm super-small:p-2">{result.name.toUpperCase()}</p>)}
                                     </div>
                                     <div className="super-small:flex super-small:gap-2 xl:flex-none">
@@ -67,10 +67,10 @@ export const Detail = () => {
                                     <p className="super-small:hidden xl:block p-2 bg-yellow-400 bg-opacity-20 rounded-xl ">Avaliação: {average.toFixed(1)}</p>
                                 </div>
                             </div>
-                            <div className=" bg-zinc-900 super-small:bg-opacity-10 xl:bg-opacity-40  xl:p-3 rounded-b-xl">
+                            <div className=" bg-zinc-900 super-small:bg-opacity-10  xl:bg-opacity-40  xl:p-3 rounded-b-xl">
                                 <h1 className="text-white text-3xl max-w-screen-sm font-roboto font-semibold p-4 text-left">{title}</h1>
                                 <h2 className="text-white font-semibold text-2xl pt-8 pl-5">SINOPSE:</h2>
-                                <div className="xl:w-smartphone  rounded-xl">
+                                <div className="xl:w-smartphone   rounded-xl">
                                     <p className="text-justify super-small:p-3 xl:p-10 text-white text-lg w-full h-40 overflow-scroll">{overView}</p>
                                 </div>
                             </div>
