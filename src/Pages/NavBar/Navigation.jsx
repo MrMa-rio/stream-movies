@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react";
 import Logo from '../../assets/imagens/CORNFLIXBR_rect.png'
@@ -45,7 +44,7 @@ export const NavBar = () => {
                         </Link>                   
                     </ul>
                 </li>
-                <input onChange={onChangeHandler} className=" w-full bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
+                <input onChange={onChangeHandler} className=" w-full bg-transparent rounded-lg border-b-black border-t-0 border-l-0 border-r-0 placeholder-black hover:placeholder-white text-center text-lg placeholder-opacity-80" placeholder="Pesquise aqui.." type="text" />
             </nav>
         </div>
     )

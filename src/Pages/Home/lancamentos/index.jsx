@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
-import {ImageCard} from "../../../components/imageCard/imageCard";
+import {ImageCard, Refresh} from "../../../components/index";
 import {getMovies} from "../../../api";
-import { Refresh } from "../../../components/refresh/refresh";
 import NoImage from "../../../assets/imagens/no_image.png"
 
 export const Lancamentos = () => {

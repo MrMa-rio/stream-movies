@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import "swiper/css";
 import { randomMovies } from "../../api";
-import {NavBar} from "../NavBar/Navigation";
-import {Lancamentos} from "./lancamentos";
-import {Popular_Filmes} from "./popular_filmes"
-import {Top_Filmes} from "./top_filmes"
+import { Lancamentos, Popular_Filmes, Top_Filmes, NavBar } from "../index";
+
 
 
 function Home() {
@@ -14,7 +12,6 @@ function Home() {
   useEffect(() =>{
     randomMovies().then((data) => {
       setBgMovie(data)
-
     })
   },[])
   

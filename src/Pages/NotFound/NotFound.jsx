@@ -1,4 +1,4 @@
-import { NavBar } from "../NavBar/Navigation"
+import { NavBar } from "../index"
 
 export const NotFound = () =>{
     return(

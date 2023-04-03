@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMovies,randomMovies } from "../../api";
-import { ImageCard } from "../../components/imageCard/imageCard";
-import { Refresh } from "../../components/refresh/refresh";
+import { ImageCard, Refresh } from "../../components/index";
 import { Link } from "react-router-dom";
 import Home from "../../assets/imagens/home.png"
 import ArrowLeft from "../../assets/imagens/arrow_left.png"

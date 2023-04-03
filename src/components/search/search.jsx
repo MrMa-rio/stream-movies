@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getResultMovies } from "../../api";
-import { Refresh } from "../refresh/refresh";
-import {ImageCard} from "../imageCard/imageCard";
+import {ImageCard, Refresh} from "../index";
 import { NotFound } from "../../Pages/NotFound/NotFound";
 import BackgroundImage from '../../assets/imagens/backgroundImage.jpg'
 import NoImage from '../../assets/imagens/no_image.png'
