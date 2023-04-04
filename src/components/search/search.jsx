@@ -27,7 +27,7 @@ export const Search = () =>{
         }
         timeToCallSomething.current = setTimeout(() =>{
             if(text != '' ){
-                navigate(`/search/${text}`) 
+                navigate(`/search/${text.trim()}`) 
             }
         }, 2000);
         return () => clearInterval(timeToCallSomething.current);
