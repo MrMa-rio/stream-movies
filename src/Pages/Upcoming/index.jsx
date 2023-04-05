@@ -15,10 +15,11 @@ export const Upcoming = () => {
     const movies = "upcoming"
     const [ page, setPage ] = useState(1);
     const [bgMovie, setBgMovie] = useState(null)
-
+    const [maxPage, setMaxPage] = useState(null)
     useEffect(() =>{
         getMovies(movies,page).then((data) => {
             setUpcomingMovies(data.results)
+            setMaxPage(data.total_pages > 30 ? 30 : data.total_pages)
         })
         randomMovies().then((data) => {
             setBgMovie(data)
@@ -33,7 +34,7 @@ export const Upcoming = () => {
                 </div>
                 <div className="pt-10">
                     <SearchTextRelative />
-                    <Page stepPage={stepPage} setPage={setPage} page={page}  />
+                    <Page stepPage={stepPage} maxPage={maxPage} setPage={setPage} page={page}  />
                 </div>
                 <div className="md:grid md:grid-cols-4 md:grid-rows-6 xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-primary bg-fixed w-screen ">
                     {upcoming_movies.map((movie) =>  <div key={movie.id+1} className="super-small:p-5 md:p-4 xl:p-14 relative">

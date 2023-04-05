@@ -31,9 +31,9 @@ export const getTrailerMovie = async (id) => {
     
     
 }
-export const getResultMovies = async (query) =>{
+export const getResultMovies = async (query, page) =>{
     try {
-        const response = await fetch(`${url_api}search/movie${api_key}${region}&page=1&include_adult=false&query=${query}`)
+        const response = await fetch(`${url_api}search/movie${api_key}${region}&page=${page}&include_adult=false&query=${query}`)
         const data = await response.json()
         return data
     } catch (error) {

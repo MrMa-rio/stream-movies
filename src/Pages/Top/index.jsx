@@ -15,11 +15,12 @@ export const Top = () => {
     const movies = "top_rated"
     const [page, setPage] = useState(1)
     const [bgMovie, setBgMovie] = useState()
-
+    const [maxPage, setMaxPage] = useState(null)
     useEffect(() =>{
         
         getMovies(movies,page).then((data) => {
             setTopMovies(data.results)
+            setMaxPage(data.total_pages > 30 ? 30 : data.total_pages)
         })
         randomMovies().then((data) => {
             setBgMovie(data)
@@ -34,7 +35,7 @@ export const Top = () => {
                 </div>
                 <div className="pt-10">
                     <SearchTextRelative />
-                    <Page stepPage={stepPage} setPage={setPage} page={page}  />
+                    <Page stepPage={stepPage} maxPage={maxPage} setPage={setPage} page={page}  />
                 </div>
                 <div className=" md:grid md:grid-cols-4 md:grid-rows-6 xl:grid xl:grid-cols-5 xl:grid-rows-5 bg-fixed w-screen  bg-primary ">
                     {top_movies.map((movie) =>  <div key={movie.id+1} className="super-small:p-5 md:p-4 xl:p-14 relative">
