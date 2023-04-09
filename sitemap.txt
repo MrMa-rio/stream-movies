@@ -1,0 +1,4 @@
+https://cornflixplus.vercel.app/
+https://cornflixplus.vercel.app/popular
+https://cornflixplus.vercel.app/upcoming
+https://cornflixplus.vercel.app/top

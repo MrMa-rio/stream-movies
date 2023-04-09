@@ -1,0 +1,20 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://cornflixplus.vercel.app/</loc>
+	</url>
+	<url>
+		<loc>https://cornflixplus.vercel.app/popular</loc>
+	</url>
+	<url>
+		<loc>https://cornflixplus.vercel.app/details</loc>
+	</url>
+	<url>
+		<loc>https://cornflixplus.vercel.app/top</loc>
+	</url>
+	<url>
+		<loc>https://cornflixplus.vercel.app/upcoming</loc>
+	</url>
+	<url>
+		<loc>https://cornflixplus.vercel.app/search/</loc>
+	</url>
+</urlset>
